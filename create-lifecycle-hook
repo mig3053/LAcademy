@@ -1,0 +1,21 @@
+linuxacademy@ip-10-0-0-120:~$ aws autoscaling put-lifecyclehook
+--lifecycle-hook-name devops-pro-hook --auto-scaling-groupname
+devops-pro --lifecycle-transition autoscaling:EC2_INSTANCE_
+LAUNCHING
+Confirm its success:
+linuxacademy@ip-10-0-0-120:~$ aws autoscaling describe-lifecyclehooks
+--auto-scaling-group-name devops-pro
+{
+ "LifecycleHooks": [
+ {
+ "GlobalTimeout": 172800,
+ "HeartbeatTimeout": 3600,
+ "AutoScalingGroupName": "devops-pro",
+ "LifecycleHookName": "devops-pro-hook",
+ "DefaultResult": "ABANDON",
+ "LifecycleTransition": "autoscaling:EC2_INSTANCE_
+LAUNCHING"
+ }
+ ]
+ }
+This hook stops 
